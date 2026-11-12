@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace YOUR-SITE-URL with your real address, e.g. https://adityagupta.github.io -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-SITE-URL/</loc>
+    <loc>https://adityaguptaiitb.github.io/adityagupta/</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
 </urlset>
