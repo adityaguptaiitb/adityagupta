@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditya Gupta, Mechanical Design Engineer</title>
+<meta name="description" content="Aditya Gupta, mechanical design engineer and M.Tech student at IIT Bombay, Mumbai. Robotic actuators, a quadruped leg, precision flexure mechanisms and UAVs, taken from first-principles models to CAD, hardware and test.">
+<meta name="author" content="Aditya Gupta">
+<meta name="robots" content="index, follow">
+<!-- SEO: after you put the site online, replace YOUR-SITE-URL below with your real address (for example https://adityagupta.github.io)
+     and remove the comment markers around the canonical and Search Console lines. See README.txt. -->
+<!-- <link rel="canonical" href="https://YOUR-SITE-URL/"> -->
+<!-- <meta name="google-site-verification" content="PASTE-CODE-FROM-SEARCH-CONSOLE"> -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aditya Gupta, Mechanical Design Engineer">
+<meta property="og:description" content="Robotic actuators, a quadruped leg, precision flexure mechanisms and UAVs, from first-principles models to tested hardware. M.Tech, IIT Bombay.">
+<meta property="og:image" content="https://YOUR-SITE-URL/og-image.jpg">
+<meta property="og:url" content="https://YOUR-SITE-URL/">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1836">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aditya Gupta",
+  "jobTitle": "Mechanical Design Engineer",
+  "description": "Mechanical design engineer and M.Tech student in Design Engineering at IIT Bombay, working on mechatronics, robotic actuators, precision compliant mechanisms and UAVs.",
+  "email": "mailto:adityagupta13002@gmail.com",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Bombay" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Bombay" },
+    { "@type": "CollegeOrUniversity", "name": "Nirma University" }
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+  "knowsAbout": ["Mechatronics", "Robotic actuator design", "BLDC motor control", "Compliant mechanisms", "Precision machine design", "UAV design", "Generative design", "Topology optimization", "Additive manufacturing"],
+  "sameAs": ["https://www.linkedin.com/in/adityagupta12/"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700&family=Sofia+Sans+Condensed:wght@500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: one drafting sheet. A dusk-lit Mumbai cover, then pale drafting-film pages on a faint grid,
+     everything left-aligned to a 1200px sheet. Amber, taken from the dusk sky, is the only accent. */
+  --paper:#E9ECF1;      /* drafting film */
+  --sheet:#F9FAFC;      /* card / drawing sheet */
+  --ink:#0B1836;        /* navy drawing ink, from the upper sky */
+  --ink-soft:#4A5672;   /* secondary text */
+  --blue:#2346C4;       /* links on paper */
+  --signal:#F3A73C;     /* dusk amber */
+  --rule:rgba(11,24,54,.15);
+  --grid:rgba(11,24,54,.04);
+  --on-ink:#EEF1F6;
+  --on-ink-soft:rgba(238,241,246,.74);
+  --rule-on-ink:rgba(238,241,246,.24);
+  --media:#0A1226;
+  --display:"Sofia Sans Extra Condensed","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --cond:"Sofia Sans Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --body:"Sofia Sans","Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  --wrap:1680px;
+  --gut:clamp(16px,4vw,72px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{margin:0;background-color:var(--paper);color:var(--ink);font:400 1.0625rem/1.55 var(--body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;height:auto;display:block}
+@media (min-width:1600px){html{font-size:106.25%}}
+@media (min-width:2200px){html{font-size:118.75%}}
+a{color:var(--blue);text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px;box-shadow:0 0 0 5px var(--ink)}
+h1,h2,h3,h4,p,dl,dd,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+h2,h3,h4{text-wrap:balance}
+.wrap{width:min(100% - 2*var(--gut),var(--wrap));margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--signal);color:var(--ink);padding:8px 14px;font-weight:700;z-index:99}
+.skip:focus{left:8px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:var(--ink);color:var(--on-ink);border-bottom:1px solid var(--rule-on-ink)}
+.nav-in{display:flex;align-items:center;gap:24px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--on-ink);text-decoration:none;font:700 1.25rem/1 var(--cond);letter-spacing:.01em;white-space:nowrap}
+.brand-mark{display:grid;place-items:center;width:30px;height:30px;background:var(--signal);color:var(--ink);font:800 1.15rem/1 var(--display)}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{color:var(--on-ink-soft);text-decoration:none;font:600 1.05rem/1 var(--cond);padding:10px 12px;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--on-ink)}
+.nav-links a[aria-current="true"]{color:var(--on-ink);border-bottom-color:var(--signal)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--rule-on-ink);color:var(--on-ink);padding:8px 14px;font:600 1rem/1 var(--cond)}
+.progress{position:absolute;left:0;bottom:-3px;height:3px;width:100%;background:var(--signal);transform-origin:0 50%;transform:scaleX(0)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border:1.5px solid var(--ink);
+  background:transparent;color:var(--ink);text-decoration:none;font:700 1.1rem/1 var(--cond);letter-spacing:.01em;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--ink);color:var(--on-ink)}
+.btn-solid{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.btn-solid:hover{background:var(--on-ink);border-color:var(--on-ink);color:var(--ink)}
+.on-ink .btn{border-color:var(--rule-on-ink);color:var(--on-ink)}
+.on-ink .btn:hover{background:var(--on-ink);border-color:var(--on-ink);color:var(--ink)}
+.on-ink .btn-solid{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.nav .btn{min-height:36px;padding:6px 14px;font-size:1rem}
+.btn.is-pending{border-style:dashed}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(560px,60vw,900px);
+  background:var(--ink) url("img/mumbai-skyline.jpg") center 38%/cover no-repeat;color:var(--on-ink);isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(11,24,54,0) 0%,rgba(11,24,54,0) 42%,rgba(11,24,54,.5) 60%,rgba(11,24,54,.86) 80%,rgba(11,24,54,.97) 100%),
+             linear-gradient(90deg,rgba(11,24,54,.38) 0%,rgba(11,24,54,0) 58%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,64px);align-items:end;padding-block:clamp(28px,4vw,48px)}
+.hero-role{font:600 clamp(1.15rem,1.8vw,1.45rem)/1.2 var(--cond);color:var(--signal);margin-bottom:4px}
+.hero h1{font:800 clamp(4rem,9.4vw,8.8rem)/.84 var(--display);text-transform:uppercase;letter-spacing:-.01em;margin-left:-.02em;text-shadow:0 2px 28px rgba(6,11,26,.5)}
+.hero-lede{font-size:clamp(1.08rem,1.45vw,1.25rem);line-height:1.5;max-width:38em;margin-top:clamp(14px,2vw,22px);text-shadow:0 1px 14px rgba(6,11,26,.7)}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:22px}
+.hero-cta .btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-links{display:flex;flex-wrap:wrap;gap:6px 20px;font:600 1.1rem/1.3 var(--cond)}
+.hero-links a{color:var(--on-ink)}
+.portrait{position:relative;padding:12px;width:clamp(170px,17vw,232px)}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%}
+.portrait::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+   linear-gradient(var(--signal),var(--signal)) 0 0/28px 2px no-repeat,linear-gradient(var(--signal),var(--signal)) 0 0/2px 28px no-repeat,
+   linear-gradient(var(--signal),var(--signal)) 100% 0/28px 2px no-repeat,linear-gradient(var(--signal),var(--signal)) 100% 0/2px 28px no-repeat,
+   linear-gradient(var(--signal),var(--signal)) 0 100%/28px 2px no-repeat,linear-gradient(var(--signal),var(--signal)) 0 100%/2px 28px no-repeat,
+   linear-gradient(var(--signal),var(--signal)) 100% 100%/28px 2px no-repeat,linear-gradient(var(--signal),var(--signal)) 100% 100%/2px 28px no-repeat}
+@media (prefers-reduced-motion:no-preference){
+  .portrait::before{animation:brackets .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes brackets{from{inset:-16px;opacity:.2}to{inset:0;opacity:1}}
+}
+.facts{background:var(--ink);color:var(--on-ink);padding-bottom:clamp(24px,3vw,36px)}
+.titleblock{display:grid;grid-template-columns:1.3fr 1fr 1.2fr 1fr;border:1px solid var(--rule-on-ink)}
+.titleblock>div{padding:14px 18px;border-left:1px solid var(--rule-on-ink);min-width:0}
+.titleblock>div:first-child{border-left:0}
+.titleblock dt{font-size:.82rem;color:var(--on-ink-soft);margin-bottom:3px}
+.titleblock dd{font:600 1.18rem/1.2 var(--cond)}
+.tb-inst{display:flex;gap:12px;align-items:center}
+.tb-inst img{width:44px;height:auto;flex:none;background:#fff;border-radius:50%;padding:2px}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(56px,8vw,100px)}
+.sec.tight{padding-top:0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,40px)}
+.sec-head h2{font:800 clamp(2.9rem,7vw,5.2rem)/.9 var(--display);letter-spacing:-.005em}
+.sec-head p{max-width:34em;color:var(--ink-soft);font-size:1.1rem}
+.zoom{cursor:zoom-in}
+
+/* ---------- process (flagship) ---------- */
+.sheet{background:var(--sheet);border:1.5px solid var(--ink)}
+.sheet-top{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;padding:18px clamp(16px,2.4vw,28px);border-bottom:1.5px solid var(--ink)}
+.sheet-top h3{font:700 clamp(1.6rem,3vw,2.2rem)/1 var(--cond)}
+.sheet-top p{color:var(--ink-soft)}
+.rail{--pad:clamp(16px,2.4vw,28px);--gap:clamp(12px,1.8vw,22px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:var(--pad) calc(var(--pad) - var(--gap)) 6px var(--pad)}
+.rail>li{padding-bottom:22px}
+.rail-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.rail-head b{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:var(--signal);border:1.5px solid var(--ink);font:800 1.4rem/1 var(--display)}
+.rail-head span{font:700 1.3rem/1 var(--cond);white-space:nowrap}
+.rail-head::after{content:"";flex:1;height:1.5px;background:var(--ink);min-width:8px}
+.rail>li:last-child .rail-head::after{background:none}
+.rail-fig{margin-right:var(--gap);aspect-ratio:4/3;background:#DDE2EA;border:1px solid var(--rule);overflow:hidden}
+.rail-fig img{width:100%;height:100%;object-fit:cover}
+.rail p{margin:12px var(--gap) 0 0;font-size:1rem;line-height:1.45}
+.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--ink)}
+.results>div{padding:14px clamp(16px,2.4vw,28px);border-left:1px solid var(--rule)}
+.results>div:first-child{border-left:0}
+.results dt{font-size:.88rem;color:var(--ink-soft)}
+.results dd{font:700 clamp(1.5rem,2.6vw,2rem)/1.1 var(--cond);font-variant-numeric:tabular-nums}
+.results small{display:block;font:400 .88rem/1.3 var(--body);color:var(--ink-soft)}
+
+/* ---------- projects ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(28px,4vw,40px)}
+.chip{border:1.5px solid var(--ink);background:transparent;padding:8px 16px;font:600 1.05rem/1 var(--cond);min-height:40px}
+.chip:hover{background:var(--sheet)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.chip span{opacity:.65;margin-left:6px;font-variant-numeric:tabular-nums}
+.pgroup+.pgroup{margin-top:clamp(48px,6vw,72px)}
+.pgroup[hidden]{display:none}
+.pgroup-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 48px;align-items:end;padding-bottom:14px;margin-bottom:clamp(18px,2.4vw,28px);border-bottom:1.5px solid var(--ink)}
+.pgroup-head h3{font:700 clamp(1.7rem,3vw,2.3rem)/1 var(--cond)}
+.pgroup-head p{color:var(--ink-soft);max-width:36em}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.proj{background:var(--sheet);border:1px solid var(--rule);display:flex;flex-direction:column;min-width:0}
+.proj[hidden]{display:none}
+.proj-body{padding:clamp(16px,2.2vw,26px);display:grid;gap:10px;align-content:start}
+.proj-body h3{font:700 clamp(1.5rem,2.4vw,1.85rem)/1.05 var(--cond)}
+.proj-body>p:not(.ctx){max-width:62ch}
+.status{display:inline-block;vertical-align:middle;margin-left:6px;background:var(--signal);font:700 .85rem/1 var(--cond);padding:4px 8px;white-space:nowrap}
+.ctx{color:var(--ink-soft);font-size:.95rem}
+.specs{margin-top:4px;border-bottom:1px solid var(--rule)}
+.specs>div{display:grid;grid-template-columns:8.4em minmax(0,1fr);gap:12px;padding:8px 0;border-top:1px solid var(--rule);font-size:.98rem;line-height:1.42}
+.specs dt{color:var(--ink-soft)}
+
+/* wide cards: the featured project, and the last card when a row would be left half empty */
+.proj.feature,.proj.is-wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:stretch}
+.proj.feature .gallery,.proj.is-wide .gallery{grid-column:1;grid-row:1}
+.proj.feature .proj-body,.proj.is-wide .proj-body{grid-column:2;grid-row:1;padding:clamp(18px,2.6vw,32px)}
+.proj.feature{border:1.5px solid var(--ink)}
+.proj.feature .proj-body h3{font-size:clamp(1.8rem,3vw,2.4rem)}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:8px}
+.kpis>div{background:var(--sheet);padding:12px 14px}
+.kpis dt{font:800 clamp(1.8rem,3vw,2.4rem)/1 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpis dd{color:var(--ink-soft);font-size:.9rem;line-height:1.35;margin-top:4px}
+.contrib{grid-column:1/-1;border-top:1px solid var(--rule);padding:clamp(18px,2.6vw,32px)}
+.contrib h4{font:700 1.3rem/1 var(--cond);margin-bottom:12px}
+.contrib ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 40px;counter-reset:did}
+.contrib li{position:relative;padding-left:34px;font-size:1rem;line-height:1.5;counter-increment:did}
+.contrib li::before{content:counter(did);position:absolute;left:0;top:.05em;display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--ink);border-radius:50%;font:700 .82rem/1 var(--cond)}
+.contrib .next{margin-top:16px;color:var(--ink-soft);font-size:.98rem}
+
+@media (min-width:1001px){
+  .proj.feature .gallery.is-ready,.proj.is-wide .gallery.is-ready{display:flex;flex-direction:column}
+  .proj.feature .g-view,.proj.is-wide .g-view{flex:1 1 auto;aspect-ratio:auto;min-height:340px}
+  .proj.feature .g-track,.proj.is-wide .g-track{position:absolute;inset:0;height:auto}
+  .proj.feature .g-slide img,.proj.feature .g-slide video,.proj.is-wide .g-slide img,.proj.is-wide .g-slide video{object-fit:contain}
+  .proj.feature .g-slide::before,.proj.is-wide .g-slide::before{content:"";position:absolute;inset:-30px;background:var(--bg,none) center/cover no-repeat;filter:blur(24px) brightness(.5)}
+}
+/* gallery: <img> and <video> lines inside .gallery become a sliding show; the caption sits below the media */
+.gallery{display:flex;overflow:hidden;aspect-ratio:3/2;background:var(--media)}
+.gallery>img,.gallery>video{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.gallery.is-ready{display:block;aspect-ratio:auto;overflow:visible}
+.g-view{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--media)}
+.g-track{display:flex;width:100%;height:100%;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.g-slide{position:relative;flex:0 0 100%;min-width:0;height:100%;overflow:hidden}
+.g-slide.is-white{background:#fff}
+.g-slide.is-white::before{display:none}
+.g-slide.is-fit::before{content:"";position:absolute;inset:-30px;background:var(--bg,none) center/cover no-repeat;filter:blur(24px) brightness(.5)}
+.g-slide img,.g-slide video{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+.g-slide.is-fit img,.g-slide.is-fit video{object-fit:contain}
+.g-slide img{cursor:zoom-in}
+.g-slide video{cursor:pointer}
+.g-bar{position:relative;display:flex;align-items:center;gap:12px;min-height:46px;padding:9px 6px 6px 12px;background:var(--ink);color:var(--on-ink)}
+.g-bars{position:absolute;left:0;right:0;top:0;display:flex;gap:3px}
+.g-bars button{flex:1;height:10px;padding:0 0 7px;background:none;border:0}
+.g-bars i{display:block;height:3px;background:rgba(255,255,255,.22);overflow:hidden}
+.g-bars b{display:block;height:100%;width:0;background:var(--signal)}
+.g-cap{flex:1;min-width:0;display:flex;gap:9px;align-items:baseline;font:600 .98rem/1.3 var(--cond)}
+.g-cap b{flex:none;color:var(--signal);font-weight:700}
+.g-cap span{color:var(--on-ink)}
+.g-count{flex:none;font:600 .9rem/1 var(--cond);color:var(--on-ink-soft);font-variant-numeric:tabular-nums}
+.g-nav{flex:none;display:flex;gap:2px}
+.g-nav button{display:grid;place-items:center;width:34px;height:32px;padding:0;background:transparent;color:var(--on-ink);border:1px solid var(--rule-on-ink)}
+.g-nav button:hover{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.g-nav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4}
+
+/* ---------- research ---------- */
+.pubs{border-top:1.5px solid var(--ink)}
+.pub{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:clamp(16px,3vw,36px);align-items:center;padding:22px 0;border-bottom:1px solid var(--rule)}
+.pub-fig{aspect-ratio:3/2;background:#fff;border:1px solid var(--rule);overflow:hidden}
+.pub-fig img{width:100%;height:100%;object-fit:cover}
+.pub-kind{font:600 1rem/1 var(--cond);color:var(--ink-soft);margin-bottom:6px}
+.pub h3{font:700 clamp(1.35rem,2.2vw,1.7rem)/1.1 var(--cond);max-width:30em}
+.pub p{color:var(--ink-soft);margin-top:6px;font-size:.98rem}
+
+/* ---------- awards ---------- */
+.awards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.award{display:grid;grid-template-rows:auto auto 1fr;gap:12px;min-width:0}
+.award-year{font:800 clamp(3rem,5vw,4.2rem)/.85 var(--display);border-bottom:1.5px solid var(--ink);padding-bottom:10px;font-variant-numeric:tabular-nums}
+.award-fig{aspect-ratio:16/10;background:#DDE2EA;border:1px solid var(--rule);overflow:hidden}
+.award-fig img{width:100%;height:100%;object-fit:cover}
+.award h3{font:700 1.4rem/1.1 var(--cond)}
+.award div p{color:var(--ink-soft);font-size:.98rem;margin-top:4px}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,6vw,80px)}
+.about-bio>p{font-size:1.15rem;line-height:1.58;max-width:34em}
+.about-bio>p+p{margin-top:1em}
+.about h3{font:700 1.5rem/1 var(--cond);margin-bottom:10px}
+.interests{margin-top:30px}
+.interests ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.interests li{background:var(--sheet);border:1px solid var(--rule);border-left:3px solid var(--signal);padding:9px 12px;font:600 1.05rem/1.25 var(--cond)}
+.edu{display:flex;gap:16px;align-items:center;margin-top:28px;padding:16px;background:var(--sheet);border:1px solid var(--rule)}
+.edu img{width:72px;flex:none}
+.edu+.edu{margin-top:12px}
+.edu b{font:700 1.3rem/1.1 var(--cond);display:block}
+.edu span{display:block;color:var(--ink-soft);font-size:.98rem}
+.xp,.tools{border-top:1.5px solid var(--ink);margin-bottom:34px}
+.tools:last-child{margin-bottom:0}
+.xp li,.tools>div{display:grid;grid-template-columns:7.6em minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--rule)}
+.xp .when,.tools dt{color:var(--ink-soft);font-size:.96rem;font-variant-numeric:tabular-nums}
+.xp b{font-weight:700}
+.xp span{display:block;color:var(--ink-soft);font-size:.96rem}
+
+/* ---------- contact + footer ---------- */
+.contact{background:var(--ink);color:var(--on-ink)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.contact h2{font:800 clamp(3.6rem,10vw,8rem)/.82 var(--display);text-transform:uppercase}
+.contact p{color:var(--on-ink-soft);max-width:32em;font-size:1.12rem}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:18px 0 22px}
+.mail a{color:var(--on-ink);font:700 clamp(1.35rem,3vw,2rem)/1.1 var(--cond);overflow-wrap:anywhere}
+.copy{background:none;border:1px solid var(--rule-on-ink);color:var(--on-ink);padding:7px 12px;font:600 .95rem/1 var(--cond);min-height:34px}
+.copy:hover{background:var(--on-ink);color:var(--ink)}
+.contact-links{display:flex;flex-wrap:wrap;gap:10px}
+.foot{background:var(--ink);color:var(--on-ink-soft);font-size:.92rem;padding-bottom:28px}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid var(--rule-on-ink);padding-top:16px}
+.foot b{color:var(--on-ink);font-weight:600}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--signal);color:var(--ink);font:700 1rem/1.2 var(--cond);padding:10px 16px;border:1.5px solid var(--ink);z-index:60;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+
+/* ---------- lightbox ---------- */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh;color:var(--on-ink)}
+dialog.lb::backdrop{background:rgba(6,12,28,.92)}
+.lb img{max-width:100%;max-height:80vh;width:auto;margin:auto;background:#DDE2EA}
+.lb-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 0}
+.lb-bar p{font:600 1.05rem/1.3 var(--cond)}
+.lb-bar button{background:var(--signal);border:0;color:var(--ink);font:700 1rem/1 var(--cond);padding:9px 14px;flex:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .awards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rail>li:nth-child(2) .rail-head::after{background:none}
+  .results{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .results>div:nth-child(3){border-left:0}
+  .results>div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .titleblock{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .titleblock>div:nth-child(3){border-left:0}
+  .titleblock>div:nth-child(n+3){border-top:1px solid var(--rule-on-ink)}
+  .proj.feature,.proj.is-wide{display:flex;flex-direction:column}
+  .contrib ul{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .nav-links{display:none;position:absolute;left:0;right:0;top:60px;background:var(--ink);flex-direction:column;gap:0;padding:8px var(--gut) 16px;border-bottom:1px solid var(--rule-on-ink)}
+  .nav-links.is-open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--rule-on-ink);font-size:1.2rem}
+  .menu-btn{display:block}
+  .nav .btn{display:none}
+  .hero{min-height:0;padding-top:46vw;background-size:auto 64vw;background-position:58% 0}
+  .hero::before{background:linear-gradient(180deg,rgba(11,24,54,0) 0,rgba(11,24,54,0) 30vw,rgba(11,24,54,.75) 52vw,var(--ink) 64vw,var(--ink) 100%)}
+  .hero-grid{grid-template-columns:1fr}
+  .portrait{order:-1;width:150px;padding:9px}
+  .sec-head,.pgroup-head,.about,.contact-grid{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .proj.is-wide{grid-column:auto}
+  .pub{grid-template-columns:140px minmax(0,1fr)}
+  .pub .btn{grid-column:1/-1;justify-self:start}
+}
+@media (max-width:560px){
+  .rail,.results,.titleblock,.awards{grid-template-columns:1fr}
+  .rail{padding-right:var(--pad)}
+  .rail-head::after{background:none !important}
+  .rail-fig,.rail p{margin-right:0}
+  .results>div,.titleblock>div{border-left:0 !important;border-top:1px solid var(--rule)}
+  .titleblock>div{border-top-color:var(--rule-on-ink)}
+  .results>div:first-child,.titleblock>div:first-child{border-top:0}
+  .specs>div,.xp li,.tools>div{grid-template-columns:1fr;gap:2px}
+  .interests ul{grid-template-columns:1fr}
+  .pub{grid-template-columns:1fr}
+  .pub-fig{max-width:280px}
+  .g-count{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- =====================================================================
+     HOW TO EDIT (open this file in any text editor, save, refresh the browser)
+     1. Add a photo or video to a project: put the file in /img or /video, then add
+        ONE line inside that project's <div class="gallery"> block:
+          <img src="img/my-photo.jpg" alt="What it shows" data-tag="Hardware">
+          <video src="video/my-clip.mp4" poster="img/my-clip-poster.jpg" data-tag="Test" data-caption="What it shows" muted playsinline preload="none"></video>
+        The order of the lines is the order they slide in. Delete a line to remove it.
+     2. Swap a photo: replace the file in /img and keep the same name.
+     3. Links: edit the LINKS block at the bottom of this file.
+     4. Text: search for the words you want to change and type over them.
+     5. New project: copy a whole <article class="proj"> ... </article> block and edit it.
+     See README.txt for more.
+     ===================================================================== -->
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">AG</span>Aditya Gupta</a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="#process">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#awards">Awards</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="on-ink"><a class="btn btn-solid" data-link="resume" href="#contact">Resume</a></span>
+    <span class="progress" id="progress" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<!-- Cover photo: img/mumbai-skyline.jpg. Replace the file (keep the name) to change it. -->
+<section class="hero on-ink" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-role">Mechanical design engineer, IIT Bombay</p>
+      <h1>Aditya Gupta</h1>
+      <p class="hero-lede">I design machines from first principles, then build and test them until the numbers hold. My work runs from UAVs and robotic actuators to an industrial-scale 3D microprinter targeting 10&nbsp;µm accuracy.</p>
+      <div class="hero-cta">
+        <div class="btns">
+          <a class="btn btn-solid" href="#projects">See the projects</a>
+          <a class="btn" data-link="resume" href="#contact">Resume</a>
+        </div>
+        <p class="hero-links">
+          <a data-link="linkedin" href="https://www.linkedin.com/in/adityagupta12/" rel="me noopener">LinkedIn</a>
+          <a data-link="portfolio" href="#contact">Portfolio</a>
+          <a data-link="email" href="mailto:adityagupta13002@gmail.com">Email</a>
+        </p>
+      </div>
+    </div>
+    <!-- Headshot: replace img/aditya-portrait.jpg to change it (portrait shape, about 900 × 1125). -->
+    <figure class="portrait"><img src="img/aditya-portrait.jpg" alt="Portrait of Aditya Gupta" width="900" height="1124" decoding="async"></figure>
+  </div>
+</section>
+<div class="facts on-ink">
+  <div class="wrap">
+    <dl class="titleblock">
+      <div><dt>Studying</dt><dd class="tb-inst"><img src="img/iitb-logo.png" alt="IIT Bombay logo" width="360" height="351" loading="lazy" decoding="async"><span>M.Tech, Design Engineering, IIT Bombay</span></dd></div>
+      <div><dt>Graduating</dt><dd>June 2027</dd></div>
+      <div><dt>Best competition result</dt><dd>5th of 72 teams, AUVSI SUAS 2023, USA</dd></div>
+      <div><dt>Research</dt><dd>2 first-author papers and a registered design patent</dd></div>
+    </dl>
+  </div>
+</div>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Drawing board to test bench</h2>
+      <p>Every project here follows the same path: a first-principles model, CAD, hardware, then test. The actuator I built for a quadruped leg shows all four stages.</p>
+    </div>
+    <article class="sheet">
+      <div class="sheet-top">
+        <h3>Backdrivable robotic actuator</h3>
+        <p>R&amp;D project, IIT Bombay, 2025. <a href="#actuator">See the project</a></p>
+      </div>
+      <ol class="rail">
+        <li>
+          <div class="rail-head"><b>1</b><span>Drawing board</span></div>
+          <figure class="rail-fig"><img class="zoom" src="img/actuator-sketch.jpg" alt="Notebook sketch sizing the gearbox around the Tarot 340 Kv motor" width="530" height="520" loading="lazy" decoding="async"></figure>
+          <p>Chose the Tarot 340 Kv motor from a Kt (torque per amp) trade study, then sized the gear train around it by hand.</p>
+        </li>
+        <li>
+          <div class="rail-head"><b>2</b><span>CAD</span></div>
+          <figure class="rail-fig"><img class="zoom" src="img/actuator-cad-section.jpg" alt="Section view of the epicyclic gearbox in Fusion" width="960" height="500" loading="lazy" decoding="async"></figure>
+          <p>Modeled a single-stage, 3-planet epicyclic gearbox in Fusion: 22-tooth sun, 59-tooth planets and a 140-tooth ring.</p>
+        </li>
+        <li>
+          <div class="rail-head"><b>3</b><span>Hardware</span></div>
+          <figure class="rail-fig"><img class="zoom" src="img/actuator-assembled-rail.jpg" alt="Assembled actuator with printed housing, epicyclic stage and output pulley" width="1600" height="1200" loading="lazy" decoding="async"></figure>
+          <p>Printed the gear stage and housing, then assembled the motor, AMT102 capacitive encoder and output pulley.</p>
+        </li>
+        <li>
+          <div class="rail-head"><b>4</b><span>Test</span></div>
+          <figure class="rail-fig"><img class="zoom" src="img/actuator-odrive-bench.jpg" alt="ODrive S1 on the bench with position, velocity and current traces" width="1600" height="900" loading="lazy" decoding="async"></figure>
+          <p>Ran it on an ODrive S1 with field-oriented control and tuned the loops by Ziegler-Nichols before it went into the leg.</p>
+        </li>
+      </ol>
+      <dl class="results">
+        <div><dt>Gear ratio</dt><dd>7.36:1 <small>22 / 59 / 140 teeth</small></dd></div>
+        <div><dt>Peak output torque</dt><dd>8.26 N·m</dd></div>
+        <div><dt>Output speed</dt><dd>1164 RPM</dd></div>
+        <div><dt>Encoder</dt><dd>4096 CPR <small>0.087° resolution</small></dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<!-- ============================ PROJECTS ============================ -->
+<section class="sec tight" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Projects</h2>
+      <p>Current work at IIT Bombay first, then four years of competition hardware with Team Arrow. Each gallery plays through its photos and videos. Use the arrows to step through, or click a photo to enlarge it.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="iitb" aria-pressed="false">IIT Bombay</button>
+      <button class="chip" type="button" data-filter="robotics" aria-pressed="false">Robotics</button>
+      <button class="chip" type="button" data-filter="mech" aria-pressed="false">Mechanisms</button>
+      <button class="chip" type="button" data-filter="aircraft" aria-pressed="false">Aircraft</button>
+      <button class="chip" type="button" data-filter="multirotor" aria-pressed="false">Multirotors</button>
+    </div>
+
+    <div class="pgroup">
+      <div class="pgroup-head">
+        <h3>IIT Bombay, 2025 to now</h3>
+        <p>Mechatronics and precision machines: a resonant flexure stage, a backdrivable actuator and the leg it drives, and a field-tunable damper.</p>
+      </div>
+      <div class="projects">
+
+      <!-- ===== Spanda: industrial-scale SLA 3D microprinter ===== -->
+      <article class="proj feature" id="spanda" data-cat="iitb mech">
+        <div class="gallery" aria-label="Photos and videos: Spanda: industrial-scale SLA 3D microprinter">
+            <img src="img/spanda-v2-asm.jpg" alt="Spanda V2 flexure stage assembly in CAD" data-tag="CAD" data-bg="white" width="1500" height="1000" loading="lazy" decoding="async">
+            <video src="video/spanda-stage-scan.mp4" poster="img/spanda-stage-scan-poster.jpg" data-tag="Test" data-caption="Flexure stage scanning in the lab" muted playsinline preload="none"></video>
+            <img src="img/spanda-current.jpg" alt="Spanda test rig on the bench, with the confocal sensor mounted above the flexure stage" data-tag="Hardware" width="1600" height="1419" loading="lazy" decoding="async">
+            <video src="video/spanda-v1-scan.mp4" poster="img/spanda-v1-scan-poster.jpg" data-tag="Test" data-caption="Spanda V1 scanning" muted playsinline preload="none"></video>
+        </div>
+        <div class="proj-body">
+          <h3>Spanda: industrial-scale SLA 3D microprinter <span class="status">In progress</span></h3>
+          <p class="ctx">M.Tech project (MTP) and seminar, IIT Bombay, January 2026 to now. Guide: Prof. Prasanna Gandhi</p>
+          <p>Laser-scanning resin printers steer the beam with galvanometer mirrors. Toward the edges of the build plate, the spot stretches into an ellipse and defocuses, which limits accuracy to about 25 to 50 µm. Spanda replaces the galvanometer scanner with a double parallelogram compliant mechanism: a flexure stage with no friction and no backlash, driven near resonance by a voice-coil actuator.</p><p>The target is 10 µm positioning accuracy over a ±150 mm stroke, at industrial build sizes.</p>
+          <dl class="kpis"><div><dt>10 µm</dt><dd>target positioning accuracy, against about 25 to 50 µm for galvo SLA</dd></div><div><dt>±150 mm</dt><dd>flexure stroke, giving a 300 mm print bed size</dd></div><div><dt>mm to µm</dt><dd>simulated parasitic error after my optimization</dd></div><div><dt>30% to 1%</dt><dd>gap between model and experiment after I fixed the model</dd></div></dl>
+        </div>
+        <div class="contrib">
+          <h4>What I did</h4>
+          <ul><li>Generalized the chained beam constraint model (CBCM) from 3 to 6 elements per beam to capture large nonlinear deflections, and added beam self-weight through the Rayleigh half-weight criterion.</li><li>Built a three-stage nested grid search in MATLAB (the Russian-doll method) with analytical pre-filters, which drove the simulated parasitic error from the millimeter range to the micron scale.</li><li>Traced a 30% error in the legacy model through a mesh-convergence study, corrected the code to 0.5 µm precision, and validated it against Renishaw LM13 encoder and confocal sensor data to within 1%.</li><li>Co-modeled the scaled-up CAD, taking the print bed from 10 × 10 mm to 250 × 250 mm and cutting the legacy error from 100 µm to under 40 µm.</li><li>Formulated a 2-DOF spring-mass-damper model of the stage and validated its dynamic response on the bench rig, measured with the LM13 encoder and confocal sensor, to size it for near-resonance operation.</li></ul>
+          <p class="next">Next: print parts on the microprinter with tuned STM32 firmware, and validate the optimized beam geometry experimentally.</p>
+        </div>
+      </article>
+
+      <!-- ===== Quadruped robot leg ===== -->
+      <article class="proj" id="quadruped-leg" data-cat="iitb robotics">
+        <div class="gallery" aria-label="Photos and videos: Quadruped robot leg">
+            <img src="img/leg-on-table.jpg" alt="Leg with both actuators, ODrive S1 controllers and a Raspberry Pi with CAN HAT" data-tag="Hardware" width="1600" height="900" loading="lazy" decoding="async">
+            <video src="video/leg-rail-test.mp4" poster="img/leg-rail-test-poster.jpg" data-tag="Test" data-caption="Bench tuning with the ODrive dashboard" muted playsinline preload="none"></video>
+            <img src="img/leg-in-hand.jpg" alt="Belt-driven knee and 3D-printed links" data-tag="Hardware" width="900" height="1600" loading="lazy" decoding="async">
+            <video src="video/leg-bench-tuning.mp4" poster="img/leg-bench-tuning-poster.jpg" data-tag="Test" data-caption="Drop testing on the linear guide-rail stand" muted playsinline preload="none"></video>
+        </div>
+        <div class="proj-body">
+          <h3>Quadruped robot leg</h3>
+          <p class="ctx">R&amp;D project, IIT Bombay, November 2025 to May 2026. Guide: Prof. Prasanna Gandhi</p>
+          <p>A two-joint leg for a quadruped, built to test backdrivable actuation. Backdrivability lets a legged robot absorb landing impacts instead of fighting them, and it is the core enabler for robots that inspect hazardous sites.</p>
+          <dl class="specs"><div><dt>Joints</dt><dd>Hip and knee on the actuator below; the knee through a 5M, 24-tooth belt drive rated 900 W at 1000 RPM</dd></div><div><dt>Control</dt><dd>ODrive S1 field-oriented controllers on a 250 kbps CAN bus from a Raspberry Pi 3B, PID tuned by Ziegler-Nichols for minimum settling time</dd></div><div><dt>Test rig</dt><dd>MGN7H linear-rail freefall rig for repeatable drop tests</dd></div><div><dt>Test result</dt><dd>8 cm freefall drops gave peak currents of 3.5 A at the hip and 1.7 A at the knee</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Backdrivable robotic actuator ===== -->
+      <article class="proj" id="actuator" data-cat="iitb robotics mech">
+        <div class="gallery" aria-label="Photos and videos: Backdrivable robotic actuator">
+            <img src="img/actuator-sketch-cad-parts.jpg" alt="Gearbox section in Fusion beside the hand sketch, printed planet gears and the Tarot motor" data-tag="Sketch and CAD" width="1600" height="900" loading="lazy" decoding="async">
+            <img src="img/actuator-assembled.jpg" alt="Assembled actuator: printed housing, epicyclic stage and output pulley" data-tag="Hardware" width="900" height="1600" loading="lazy" decoding="async">
+            <video src="video/actuator-motor-spinup.mp4" poster="img/actuator-motor-spinup-poster.jpg" data-tag="Test" data-caption="Spinning up the Tarot 340 Kv motor" muted playsinline preload="none"></video>
+            <img src="img/actuator-odrive-bench.jpg" alt="ODrive S1 on the bench with position, velocity and current traces" data-tag="Test" width="1600" height="900" loading="lazy" decoding="async">
+            <video src="video/actuator-gearbox-run.mp4" poster="img/actuator-gearbox-run-poster.jpg" data-tag="Hardware" data-caption="First run of the printed 3-planet gear stage" muted playsinline preload="none"></video>
+        </div>
+        <div class="proj-body">
+          <h3>Backdrivable robotic actuator</h3>
+          <p class="ctx">R&amp;D project, IIT Bombay, November to December 2025. Built for the quadruped leg. Guide: Prof. Prasanna Gandhi</p>
+          <p>A compact joint actuator: a low-inertia BLDC motor, an epicyclic gearbox I designed and 3D-printed, a capacitive encoder and field-oriented control. The low gear ratio keeps it backdrivable, so the leg stays compliant on impact.</p>
+          <dl class="specs"><div><dt>Motor</dt><dd>Tarot 340 Kv BLDC, picked through a Kt (torque per amp) trade study for the best torque-to-inertia ratio</dd></div><div><dt>Gearbox</dt><dd>Single-stage, 3-planet epicyclic, 22/59/140 teeth for 7.36:1, sized by the tabular method and FDM-printed</dd></div><div><dt>Output</dt><dd>8.26 N·m peak torque, 1164 RPM</dd></div><div><dt>Sensing</dt><dd>CUI AMT102 capacitive encoder, 4096 CPR (0.087°), chosen over optical and magnetic options for EMI immunity</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Semi-active ferrofluidic damper ===== -->
+      <article class="proj" id="ferrofluid-damper" data-cat="iitb mech">
+        <div class="gallery" aria-label="Photos and videos: Semi-active ferrofluidic damper">
+            <img src="img/damper-coil.jpg" alt="RC spring damper with the solenoid coil wound on its body" data-tag="Hardware" width="900" height="1600" loading="lazy" decoding="async">
+            <img src="img/damper-test-rig.jpg" alt="Setting up the transmissibility test on the shaker rig" data-tag="Test" width="1600" height="770" loading="lazy" decoding="async">
+            <video src="video/damper-transmissibility-test.mp4" poster="img/damper-transmissibility-test-poster.jpg" data-tag="Test" data-caption="Transmissibility test: shaker drive, function generator and live response plots" muted playsinline preload="none"></video>
+        </div>
+        <div class="proj-body">
+          <h3>Semi-active ferrofluidic damper</h3>
+          <p class="ctx">Course project, Vibration and Control (ME6119), IIT Bombay, 2025. Guide: Prof. Prasanna S. Gandhi</p>
+          <p>A suspension damper whose damping changes with electric current. A coil wound on the damper sets a magnetic field across the fluid, and the field changes how strongly the fluid resists motion.</p>
+          <dl class="specs"><div><dt>Drive</dt><dd>Solenoid on the damper body, switched by an L298N H-bridge from an Arduino UNO</dd></div><div><dt>Model</dt><dd>c(I) = c_base + k_mr·I², with a 1-DOF equation of motion solved by ode45 in MATLAB</dd></div><div><dt>Measured</dt><dd>k = 375 N/m, ωn = 15 Hz, ζ ≈ 0.5, c ≈ 4 N·s/m, from shaker transmissibility tests with an LM13 encoder</dd></div><div><dt>Finding</dt><dd>Nanoparticle ferrofluid responds too weakly to the field for useful control; it takes micron-scale magnetorheological particles that chain up under the field</dd></div></dl>
+        </div>
+      </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <div class="pgroup-head">
+        <h3>Team Arrow, Nirma University, 2020 to 2024</h3>
+        <p>Competition aircraft, multirotors and ground robots for SAE Aeroindia and AUVSI SUAS. I joined as a designer and became vice captain and mechanical lead, running technical planning on a ₹50 lakh budget.</p>
+      </div>
+      <div class="projects">
+
+      <!-- ===== Laser-sintered UAV fuselage ===== -->
+      <article class="proj" id="fuselage" data-cat="aircraft">
+        <div class="gallery" aria-label="Photos and videos: Laser-sintered UAV fuselage">
+            <img src="img/fuselage-cad-exploded.jpg" alt="Exploded view of the three-part fuselage" data-tag="CAD" width="783" height="443" loading="lazy" decoding="async">
+            <img src="img/fuselage-cad-render.jpg" alt="Render of the laser-sintered fuselage" data-tag="CAD" width="480" height="311" loading="lazy" decoding="async">
+            <img src="img/fuselage-printed.jpg" alt="MJF-printed Nylon PA12 fuselage with motor and propeller fitted" data-tag="Hardware" width="854" height="431" loading="lazy" decoding="async">
+            <img src="img/fuselage-aircraft.jpg" alt="Complete aircraft with the printed fuselage on the field" data-tag="Test" width="1210" height="908" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Laser-sintered UAV fuselage</h3>
+          <p class="ctx">Team Arrow, SAE Aeroindia 2022, Micro class</p>
+          <p>A 3D-printed fuselage shaped through CFD iterations, printed in three parts to fit the print bed and designed for quick assembly.</p>
+          <dl class="specs"><div><dt>Process</dt><dd>Benchmarked FDM, MJF, SLS and SLA; chose HP Multi Jet Fusion in Nylon PA12 for isotropic strength, low porosity and a smooth finish</dd></div><div><dt>CFD</dt><dd>Spalart-Allmaras in ANSYS Fluent, grid-independent to 5 mm; loft iterated down to 0.137 N drag at 16 m/s</dd></div><div><dt>Flight</dt><dd>The aircraft reached 18:1 lift to drag with a 750 g payload and was flight-tested autonomously on a Pixhawk</dd></div><div><dt>Outcome</dt><dd>First-author paper, AIP Conference Proceedings, 2026</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Generative landing gear ===== -->
+      <article class="proj" id="landing-gear" data-cat="aircraft">
+        <div class="gallery" aria-label="Photos and videos: Generative landing gear">
+            <img src="img/gear-printed.jpg" alt="Printed generative landing gear, front view" data-tag="Hardware" width="1280" height="572" loading="lazy" decoding="async">
+            <img src="img/gear-printed-side.jpg" alt="Printed generative landing gear, side view" data-tag="Hardware" width="875" height="506" loading="lazy" decoding="async">
+            <img src="img/gear-installed.jpg" alt="Landing gear installed on the aircraft with wheels fitted" data-tag="Test" width="864" height="648" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Generative landing gear</h3>
+          <p class="ctx">Team Arrow, SAE Aeroindia 2022</p>
+          <p>The main landing gear was the heaviest structural part on our fixed-wing aircraft. I compared conventional, topology-optimized, generative and fused designs by factor of safety per unit mass, then built the best one.</p>
+          <dl class="specs"><div><dt>Mass</dt><dd>216 g down to 155 g, about 30% lighter</dd></div><div><dt>Method</dt><dd>Topology optimization fused with generative design; FEA in ANSYS, generative design in Fusion 360</dd></div><div><dt>Outcome</dt><dd>First-author journal paper (Materials Today: Proceedings, 2023) and registered design patent No. 358430-001</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== High payload fraction aircraft ===== -->
+      <article class="proj" id="payload-aircraft" data-cat="aircraft">
+        <div class="gallery" aria-label="Photos and videos: High payload fraction aircraft">
+            <img src="img/payload-cad.jpg" alt="CAD of the balsa and aero-ply airframe" data-tag="CAD" width="1383" height="729" loading="lazy" decoding="async">
+            <img src="img/payload-aircraft.jpg" alt="Finished aircraft on the grass" data-tag="Hardware" width="1400" height="1050" loading="lazy" decoding="async">
+            <img src="img/payload-hangar.jpg" alt="Technical inspection in the hangar at SAE Aeroindia 2022" data-tag="Competition" width="800" height="600" loading="lazy" decoding="async">
+            <video src="video/regular-class-flight.mp4" poster="img/regular-class-flight-poster.jpg" data-tag="Flight" data-caption="Flight demonstration: takeoff and climb-out" muted playsinline preload="none"></video>
+            <img src="img/payload-field.jpg" alt="The aircraft on the field, low angle" data-tag="Hardware" width="980" height="1306" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>High payload fraction aircraft</h3>
+          <p class="ctx">Team Arrow, SAE Aeroindia 2022, Regular class</p>
+          <p>Built to carry as much as possible under a 4 kg empty-weight cap. It won 2nd place for innovation and 2nd place for its technical design report.</p>
+          <dl class="specs"><div><dt>Payload fraction</dt><dd>0.34: 2 kg of payload on a 3.8 kg airframe</dd></div><div><dt>Aerodynamics</dt><dd>Lift, drag and moments sized in XFLR5</dd></div><div><dt>Structure</dt><dd>Balsa, aero-ply and aluminum alloys; 25% lighter after topology optimization</dd></div><div><dt>My role</dt><dd>Aircraft design and analysis team; co-authored the design report</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Large-scale quadcopter ===== -->
+      <article class="proj" id="quadcopter" data-cat="multirotor">
+        <div class="gallery" aria-label="Photos and videos: Large-scale quadcopter">
+            <img src="img/quad-field.jpg" alt="Pre-flight checks on the field at SUAS 2023" data-tag="Hardware" width="1400" height="933" loading="lazy" decoding="async">
+            <img src="img/quad-flight.jpg" alt="In flight with water-bottle payloads" data-tag="Flight" width="1400" height="933" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Large-scale quadcopter</h3>
+          <p class="ctx">Team Arrow, AUVSI SUAS 2023, Maryland, USA</p>
+          <p>Our vehicle for AUVSI SUAS 2023, where we placed 5th of 72 international teams. I led the build as vice captain and mechanical lead.</p>
+          <dl class="specs"><div><dt>Powerplant</dt><dd>Motor, battery and propeller sized in eCalc for 15 m/s crosswinds</dd></div><div><dt>Airframe</dt><dd>CFRP and polycarbonate, designed for fast assembly and maintenance (DFMA)</dd></div><div><dt>Thrust</dt><dd>10 kgf, with the structure checked in ANSYS FEA and CFD</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Winch-drop payload mechanism ===== -->
+      <article class="proj" id="winch" data-cat="multirotor mech">
+        <div class="gallery" aria-label="Photos and videos: Winch-drop payload mechanism">
+            <img src="img/winch-assembly.jpg" alt="Four winch spools mounted under the quadcopter" data-tag="Hardware" width="877" height="593" loading="lazy" decoding="async">
+            <img src="img/winch-drop-test.jpg" alt="Bottles lowered on the winch lines during a drop test" data-tag="Test" width="824" height="712" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Winch-drop payload mechanism</h3>
+          <p class="ctx">Team Arrow, AUVSI SUAS 2023</p>
+          <p>Lowers water bottles from the hovering quadcopter on a line, so the payload lands on target instead of being dropped.</p>
+          <dl class="specs"><div><dt>Mass</dt><dd>Under 100 g, FDM-printed</dd></div><div><dt>Line</dt><dd>Nylon, rated for 5 kg</dd></div><div><dt>Accuracy</dt><dd>±7.5 ft in 10 m/s wind</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Agricultural octocopter ===== -->
+      <article class="proj" id="octocopter" data-cat="multirotor">
+        <div class="gallery" aria-label="Photos and videos: Agricultural octocopter">
+            <img src="img/octo-exploded.jpg" alt="Exploded diagram with labeled parts" data-tag="CAD" width="1096" height="728" loading="lazy" decoding="async">
+            <img src="img/octo-ground.jpg" alt="On the ground before a full-system flight" data-tag="Hardware" width="940" height="479" loading="lazy" decoding="async">
+            <img src="img/octo-flight.jpg" alt="Octocopter in flight" data-tag="Flight" width="579" height="349" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Agricultural octocopter</h3>
+          <p class="ctx">Team Arrow, AUVSI SUAS 2022</p>
+          <p>Team Arrow&#x27;s primary vehicle for SUAS 2022: a camera platform for object detection and classification that also carries a payload to drop.</p>
+          <dl class="specs"><div><dt>Materials</dt><dd>CFRP, PETG, MDF, Al 6061 and MJF nylon</dd></div><div><dt>Integration</dt><dd>GPS, LiPo batteries, camera, receiver and onboard computer, laid out so electromagnetic interference does not disrupt them</dd></div><div><dt>Flight</dt><dd>Test-flown to 350 ft across missions</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Generative landing-gear mount ===== -->
+      <article class="proj" id="gear-mount" data-cat="multirotor">
+        <div class="gallery" aria-label="Photos and videos: Generative landing-gear mount">
+            <img src="img/mount-cad.jpg" alt="Generative landing-gear mount" data-tag="CAD" width="709" height="665" loading="lazy" decoding="async">
+            <img src="img/mount-installed.jpg" alt="Mount installed on the octocopter arm" data-tag="Hardware" width="1344" height="762" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Generative landing-gear mount</h3>
+          <p class="ctx">Team Arrow, for the SUAS 2022 octocopter</p>
+          <p>Replaced the octocopter&#x27;s aluminum landing-gear mount with a generative design printed in nylon, freeing weight for payload and endurance.</p>
+          <dl class="specs"><div><dt>Mass</dt><dd>67% lighter than the aluminum part</dd></div><div><dt>Tool</dt><dd>Fusion 360 generative design from loads and constraints</dd></div><div><dt>Process</dt><dd>HP Multi Jet Fusion</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Autonomous ground vehicle ===== -->
+      <article class="proj" id="ugv" data-cat="robotics">
+        <div class="gallery" aria-label="Photos and videos: Autonomous ground vehicle">
+            <img src="img/ugv-cad.jpg" alt="CAD of the ground vehicle" data-tag="CAD" width="1152" height="648" loading="lazy" decoding="async">
+            <img src="img/ugv-field.jpg" alt="Built vehicle with the line spool, GPS and telemetry fitted" data-tag="Hardware" width="1800" height="832" loading="lazy" decoding="async">
+            <video src="video/ugv-drive-test.mp4" poster="img/ugv-drive-test-poster.jpg" data-tag="Test" data-caption="Autonomous drive test" muted playsinline preload="none"></video>
+        </div>
+        <div class="proj-body">
+          <h3>Autonomous ground vehicle</h3>
+          <p class="ctx">Team Arrow, AUVSI SUAS 2022</p>
+          <p>Released from the aircraft mid-mission, then drives itself to deliver an 8 oz water bottle.</p>
+          <dl class="specs"><div><dt>Mass</dt><dd>Under 1.3 kg</dd></div><div><dt>Chassis</dt><dd>Rear-wheel drive on 500 RPM geared DC motors, CFRP frame and 3D-printed PA12 tires to survive the drop</dd></div><div><dt>Autonomy</dt><dd>Pixhawk with GPS, telemetry and LiDAR; a linear actuator releases the bottle</dd></div></dl>
+        </div>
+      </article>
+
+      <!-- ===== Antenna tracker for drone telemetry ===== -->
+      <article class="proj" id="antenna-tracker" data-cat="robotics mech">
+        <div class="gallery" aria-label="Photos and videos: Antenna tracker for drone telemetry">
+            <img src="img/tracker-gears.jpg" alt="Gear train and stepper motor during assembly" data-tag="Hardware" width="960" height="544" loading="lazy" decoding="async">
+            <img src="img/tracker-field.jpg" alt="On the field with the octocopter flying behind it" data-tag="Test" width="1152" height="653" loading="lazy" decoding="async">
+        </div>
+        <div class="proj-body">
+          <h3>Antenna tracker for drone telemetry</h3>
+          <p class="ctx">Team Arrow, AUVSI SUAS 2022</p>
+          <p>A two-axis pan-tilt mount that keeps a directional Ubiquiti antenna locked on the aircraft for telemetry.</p>
+          <dl class="specs"><div><dt>Drive</dt><dd>ABS spur gears with standard and planetary-geared NEMA 17 steppers</dd></div><div><dt>Control</dt><dd>Closed-loop pointing from GPS and telemetry</dd></div><div><dt>Range</dt><dd>Tracked out to 2 km, beyond the 1.5 km competition requirement</dd></div></dl>
+        </div>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RESEARCH ============================ -->
+<section class="sec tight" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Papers and patent</h2>
+      <p>Two competition parts became first-author papers, and one became a registered design patent.</p>
+    </div>
+    <div class="pubs">
+      <article class="pub">
+        <figure class="pub-fig"><img class="zoom" src="img/fuselage-cad-render.jpg" alt="Render of the laser-sintered fuselage" width="480" height="311" loading="lazy" decoding="async"></figure>
+        <div>
+          <p class="pub-kind">Conference paper, first author</p>
+          <h3>Design and Optimization of a Laser-Sintered Fuselage of an Unmanned Aerial Vehicle</h3>
+          <p>AIP Conference Proceedings, vol. 3397, 2026</p>
+        </div>
+        <a class="btn" href="https://doi.org/10.1063/5.0348278" target="_blank" rel="noopener">Open paper</a>
+      </article>
+      <article class="pub">
+        <figure class="pub-fig"><img class="zoom" src="img/gear-paper-render.jpg" alt="Render of the RC aircraft main landing gear" width="1200" height="800" loading="lazy" decoding="async"></figure>
+        <div>
+          <p class="pub-kind">Journal paper, first author</p>
+          <h3>Generative design of main landing gear for a remote-controlled aircraft</h3>
+          <p>Materials Today: Proceedings, 2023</p>
+        </div>
+        <a class="btn" href="https://doi.org/10.1016/j.matpr.2023.01.380" target="_blank" rel="noopener">Open paper</a>
+      </article>
+      <article class="pub">
+        <figure class="pub-fig"><img class="zoom" src="img/gear-printed-side.jpg" alt="Printed generative main landing gear, the registered design patent" width="875" height="506" loading="lazy" decoding="async"></figure>
+        <div>
+          <p class="pub-kind">Registered design patent</p>
+          <h3>Main Landing Gear of a Remote-Controlled Plane</h3>
+          <p>Design No. 358430-001, registered May 2022</p>
+        </div>
+        <a class="btn" href="#landing-gear">See the project</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AWARDS ============================ -->
+<section class="sec tight" id="awards">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Awards</h2>
+      <p>All with Team Arrow, the SAE club at Nirma University.</p>
+    </div>
+    <ol class="awards">
+      <li class="award">
+        <p class="award-year">2023</p>
+        <figure class="award-fig"><img class="zoom" src="img/suas23-team.jpg" alt="Team Arrow with the Indian flag and the quadcopter at AUVSI SUAS 2023" width="1400" height="933" loading="lazy" decoding="async"></figure>
+        <div><h3>5th of 72 teams</h3><p>AUVSI SUAS 2023, Maryland, USA, and the highest-placed Indian team. I led the team as vice captain and mechanical lead.</p></div>
+      </li>
+      <li class="award">
+        <p class="award-year">2022</p>
+        <figure class="award-fig"><img class="zoom" src="img/sae-aeroindia-2022-award.jpg" alt="Team Arrow with the Regular-class aircraft at SAE Aeroindia 2022" width="1280" height="800" loading="lazy" decoding="async"></figure>
+        <div><h3>2nd place, Innovation and Technical Design Report</h3><p>SAE Aeroindia 2022, Regular class. I was on the design and analysis team and co-authored the report.</p></div>
+      </li>
+      <li class="award">
+        <p class="award-year">2022</p>
+        <figure class="award-fig"><img class="zoom" src="img/octo-ground.jpg" alt="Team Arrow&#x27;s octocopter for AUVSI SUAS 2022" width="940" height="479" loading="lazy" decoding="async"></figure>
+        <div><h3>14th of 71 teams</h3><p>AUVSI SUAS 2022. I worked on design and analysis, and made the team's technical video and presentations.</p></div>
+      </li>
+      <li class="award">
+        <p class="award-year">2021</p>
+        <figure class="award-fig"><img class="zoom" src="img/astrocapsule-2021.jpg" alt="Autodesk logo, partner of the Astrocapsule design challenge" width="1280" height="720" loading="lazy" decoding="async"></figure>
+        <div><h3>Best Design Award</h3><p>Astrocapsule Drone Frame Design Challenge, in association with Autodesk.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="sec tight" id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
+      <div class="about-bio">
+        <p>I'm an M.Tech student in Mechanical Design Engineering at IIT Bombay, focused on the design of mechatronic systems. I design, build and experimentally validate complex hardware: UAVs, robotic platforms, electromechanical actuators and compliant mechanisms.</p>
+        <p>That work has earned national and international competition awards, two first-author papers and a registered design patent, across mechanical design, robotics, precision engineering and embedded control.</p>
+        <p>I'm looking for research and development roles in advanced mechanical systems, robotics, precision engineering and hardware innovation.</p>
+        <div class="interests">
+          <h3>What I work on</h3>
+          <ul>
+            <li>Robotics, UAVs and autonomous systems</li>
+            <li>Embedded control and mechatronics</li>
+            <li>BLDC motors, actuator design and motion control</li>
+            <li>Precision machine design and compliant mechanisms</li>
+            <li>Structural dynamics, FEA and system identification</li>
+            <li>Generative design and topology optimization</li>
+          </ul>
+        </div>
+        <div class="edu"><img src="img/iitb-logo.png" alt="IIT Bombay logo" width="360" height="351" loading="lazy" decoding="async"><div><b>Indian Institute of Technology Bombay</b><span>M.Tech, Mechanical Engineering (Design Engineering), 2025 to 2027</span></div></div>
+        <div class="edu"><img src="img/nirma-logo.png" alt="Nirma University logo" width="300" height="300" loading="lazy" decoding="async"><div><b>Nirma University, Institute of Technology</b><span>B.Tech, Mechanical Engineering, 2020 to 2024</span></div></div>
+      </div>
+      <div>
+        <h3>Experience</h3>
+        <ul class="xp">
+          <li><span class="when">Jul 2025 to now</span><div><b>M.Tech student (Teaching Assistantship), IIT Bombay</b><span>Mechanical Engineering, Design Engineering specialization</span></div></li>
+          <li><span class="when">Jan 2026 to now</span><div><b>MTP and seminar, IIT Bombay</b><span>Spanda, an industrial-scale SLA 3D microprinter. Guide: Prof. Prasanna Gandhi</span></div></li>
+          <li><span class="when">Nov 2025 to May 2026</span><div><b>R&amp;D project, IIT Bombay</b><span>Quadruped robot leg and its backdrivable actuator. Guide: Prof. Prasanna Gandhi</span></div></li>
+          <li><span class="when">Apr to Jul 2025</span><div><b>Freelance drone design engineer, Airoveda</b><span>Stackable swarm-drone frame that nests 20 units, with SLA-printed LED diffusers; sub-120 g drone</span></div></li>
+          <li><span class="when">Feb to Jun 2024</span><div><b>Graduate engineering trainee, Air Products</b><span>Piping design for a carbon-capture unit in SmartPlant 3D, to ASME B31.3</span></div></li>
+          <li><span class="when">2020 to 2024</span><div><b>Team Arrow, Nirma University</b><span>Designer, then vice captain and mechanical lead, then mentor; trained 30+ juniors and ran workshops for 500+ students</span></div></li>
+        </ul>
+        <h3>Software</h3>
+        <dl class="tools">
+          <div><dt>CAD</dt><dd>SolidWorks, Onshape, Fusion 360, nTopology</dd></div>
+          <div><dt>Simulation</dt><dd>ANSYS (FEA and CFD), HyperMesh, MATLAB, XFLR5, eCalc, Tecplot</dd></div>
+          <div><dt>Controls</dt><dd>dSPACE, ODrive (FOC), STM32 with Keil µVision, Arduino, Python</dd></div>
+          <div><dt>Plant design</dt><dd>SmartPlant 3D</dd></div>
+        </dl>
+        <h3>Methods and fabrication</h3>
+        <dl class="tools">
+          <div><dt>Design</dt><dd>GD&amp;T, tolerance stack-up, DFMEA, DFMA, topology optimization</dd></div>
+          <div><dt>Hardware</dt><dd>BLDC motors, encoders, CAN and UART, Raspberry Pi, Pixhawk</dd></div>
+          <div><dt>Fabrication</dt><dd>FDM, MJF, SLS and SLA printing, CNC machining, laser cutting</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="sec contact on-ink" id="contact">
+  <div class="wrap contact-grid">
+    <h2>Get in touch</h2>
+    <div>
+      <p>I graduate in June 2027 and I'm looking for R&amp;D roles in robotics, mechatronics, precision engineering and hardware development. Email is the quickest way to reach me.</p>
+      <div class="mail">
+        <a data-link="email" href="mailto:adityagupta13002@gmail.com">adityagupta13002@gmail.com</a>
+        <button class="copy" type="button" id="copy-mail">Copy address</button>
+      </div>
+      <div class="contact-links">
+        <a class="btn btn-solid" data-link="linkedin" href="https://www.linkedin.com/in/adityagupta12/" rel="me noopener">LinkedIn</a>
+        <a class="btn" data-link="resume" href="#contact">Resume</a>
+        <a class="btn" data-link="portfolio" href="#contact">Portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>© 2026 Aditya Gupta. Mumbai, India.</p>
+    <p>Last revision: <b>November 2026</b></p>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Enlarged photo">
+  <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+  <div class="lb-bar"><p id="lb-cap"></p><button type="button" id="lb-close">Close</button></div>
+</dialog>
+<p class="toast" id="toast" role="status" hidden></p>
+
+<script>
+/* ================= LINKS: edit these ================= */
+const LINKS = {
+  linkedin:  "https://www.linkedin.com/in/adityagupta12/",
+  email:     "adityagupta13002@gmail.com",
+  resume:    "https://drive.google.com/file/d/1SmoJpFJs1Oqy2L7qh4LYKM6KsxNzYJQE/view?usp=sharing",
+  portfolio: "https://drive.google.com/file/d/1wn8mtcqvmkmivFCwcLc3coATM0bKMJIn/view?usp=sharing"
+};
+/* ===================================================== */
+(function(){
+  const $ = (s,r=document)=>r.querySelector(s), $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+  const toast = $("#toast"); let tt;
+  function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(tt); tt = setTimeout(()=>toast.hidden = true, 2600); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m])); }
+
+  // links
+  $$("[data-link]").forEach(a=>{
+    const k = a.dataset.link, v = LINKS[k];
+    if(k === "email"){ if(v) a.href = "mailto:" + v; return; }
+    if(v){ a.href = v; if(/^https?:/.test(v)){ a.target = "_blank"; a.rel = (a.rel ? a.rel + " " : "") + "noopener"; } }
+    else { a.classList.add("is-pending"); a.addEventListener("click", ev=>{ ev.preventDefault(); say("The " + k + " link has not been added yet."); }); }
+  });
+  $("#copy-mail").addEventListener("click", async ev=>{
+    try { await navigator.clipboard.writeText(LINKS.email); ev.currentTarget.textContent = "Copied"; }
+    catch(e){ say("Could not copy. The address is " + LINKS.email); }
+  });
+
+  // menu
+  const mb = $("#menu-btn"), nl = $("#nav-links");
+  mb.addEventListener("click", ()=>{ const o = nl.classList.toggle("is-open"); mb.setAttribute("aria-expanded", o); });
+  nl.addEventListener("click", ev=>{ if(ev.target.closest("a")){ nl.classList.remove("is-open"); mb.setAttribute("aria-expanded","false"); } });
+
+  // scroll progress + current section
+  const bar = $("#progress"), navA = $$(".nav-links a"), secs = navA.map(a=>$(a.getAttribute("href")));
+  let ticking = false;
+  function onScroll(){
+    ticking = false;
+    const d = document.documentElement, max = d.scrollHeight - d.clientHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, d.scrollTop / max) : 0) + ")";
+    let cur = -1; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top < 140) cur = i; });
+    navA.forEach((a,i)=> i === cur ? a.setAttribute("aria-current","true") : a.removeAttribute("aria-current"));
+  }
+  addEventListener("scroll", ()=>{ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
+
+  // filters; a lone last card in a group stretches across the row
+  const cards = $$(".proj"), chips = $$(".chip"), groups = $$(".pgroup");
+  function layout(){
+    groups.forEach(g=>{
+      const vis = $$(".proj", g).filter(p=>!p.hidden);
+      g.hidden = vis.length === 0;
+      vis.forEach(p=>p.classList.remove("is-wide"));
+      const normal = vis.filter(p=>!p.classList.contains("feature"));
+      if(normal.length % 2 === 1) normal[normal.length - 1].classList.add("is-wide");
+    });
+  }
+  chips.forEach(c=>{
+    const f = c.dataset.filter, n = f === "all" ? cards.length : cards.filter(p=>p.dataset.cat.split(" ").includes(f)).length;
+    c.insertAdjacentHTML("beforeend", "<span>" + n + "</span>");
+    c.addEventListener("click", ()=>{
+      chips.forEach(x=>x.setAttribute("aria-pressed", x === c));
+      cards.forEach(p=> p.hidden = !(f === "all" || p.dataset.cat.split(" ").includes(f)));
+      layout();
+    });
+  });
+  layout();
+
+  // lightbox
+  const lb = $("#lb"), lbImg = $("#lb-img"), lbCap = $("#lb-cap");
+  function openLb(im){ lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt; lbCap.textContent = im.alt; if(lb.showModal) lb.showModal(); }
+  $("#lb-close").addEventListener("click", ()=>lb.close());
+  lb.addEventListener("click", ev=>{ if(ev.target === lb) lb.close(); });
+  document.addEventListener("click", ev=>{ const im = ev.target.closest(".g-slide img, .zoom"); if(im) openLb(im); });
+
+  // ---------- galleries: slide through photos and videos until they are over, then loop ----------
+  const PHOTO_MS = 4500;                       // how long each photo stays up
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ICON = {
+    prev:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5"/></svg>',
+    next:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 11 8l-5.5 5.5"/></svg>',
+    pause:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>',
+    play:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.5v11l9-5.5z"/></svg>'
+  };
+  const galleries = $$(".gallery").map(el=>{
+    const items = [...el.children].filter(n=>n.matches("img,video"));
+    if(!items.length) return null;
+    const g = {el, items, i:0, t:0, inView:false, held:still, n:items.length};
+    const view = document.createElement("div"); view.className = "g-view";
+    const track = document.createElement("div"); track.className = "g-track";
+    items.forEach(m=>{
+      const s = document.createElement("div"); s.className = "g-slide";
+      const fit = ()=>{
+        const w = m.naturalWidth || m.videoWidth || +m.getAttribute("width") || 0, h = m.naturalHeight || m.videoHeight || +m.getAttribute("height") || 0;
+        const bg = m.poster || m.currentSrc || m.getAttribute("src"); if(bg) s.style.setProperty("--bg", 'url("' + bg + '")');
+        if(w && h && w / h < 1.3) s.classList.add("is-fit");
+      };
+      if(m.dataset.bg === "white") s.classList.add("is-white");
+      fit(); m.addEventListener(m.tagName === "IMG" ? "load" : "loadedmetadata", fit);
+      if(m.tagName === "VIDEO"){
+        m.muted = true; m.playsInline = true; m.loop = g.n === 1; if(still) m.controls = true;
+        m.addEventListener("click", ()=>{ if(!m.controls) setHeld(g, !g.held); });
+      }
+      s.appendChild(m); track.appendChild(s);
+    });
+    view.appendChild(track); el.appendChild(view);
+    const barEl = document.createElement("div"); barEl.className = "g-bar";
+    barEl.innerHTML = (g.n > 1 ? '<div class="g-bars">' + items.map((m,k)=>'<button type="button" aria-label="Show item ' + (k+1) + ' of ' + g.n + '"><i><b></b></i></button>').join("") + '</div>' : "") +
+      '<p class="g-cap" aria-live="polite"></p>' +
+      (g.n > 1 ? '<span class="g-count"></span><div class="g-nav"><button type="button" data-act="prev" aria-label="Previous">' + ICON.prev + '</button>' +
+        '<button type="button" data-act="hold" aria-label="Pause slideshow">' + ICON.pause + '</button>' +
+        '<button type="button" data-act="next" aria-label="Next">' + ICON.next + '</button></div>' : "");
+    el.appendChild(barEl); el.classList.add("is-ready");
+    g.track = track; g.cap = $(".g-cap", barEl); g.count = $(".g-count", barEl);
+    if(g.n > 1){
+      g.fills = $$(".g-bars b", barEl); g.holdBtn = $("[data-act=hold]", barEl);
+      $$(".g-bars button", barEl).forEach((b,k)=>b.addEventListener("click", ()=>go(g, k)));
+      $("[data-act=prev]", barEl).addEventListener("click", ()=>go(g, g.i - 1));
+      $("[data-act=next]", barEl).addEventListener("click", ()=>go(g, g.i + 1));
+      g.holdBtn.addEventListener("click", ()=>setHeld(g, !g.held));
+      if(still) setHeld(g, true);
+    }
+    go(g, 0);
+    return g;
+  }).filter(Boolean);
+
+  function running(g){ return g.inView && !g.held && !document.hidden && !lb.open; }
+  function setHeld(g, v){
+    g.held = v;
+    if(g.holdBtn){ g.holdBtn.innerHTML = v ? ICON.play : ICON.pause; g.holdBtn.setAttribute("aria-label", v ? "Play slideshow" : "Pause slideshow"); }
+    sync(g);
+  }
+  function go(g, k){
+    g.i = (k + g.n) % g.n; g.t = 0; g.failed = false;
+    g.track.style.transform = "translateX(" + (-100 * g.i) + "%)";
+    const m = g.items[g.i];
+    g.cap.innerHTML = (m.dataset.tag ? "<b>" + esc(m.dataset.tag) + "</b>" : "") + "<span>" + esc(m.dataset.caption || m.alt || "") + "</span>";
+    if(g.count) g.count.textContent = (g.i + 1) + " / " + g.n;
+    g.items.forEach((x,j)=>{ if(x.tagName === "VIDEO" && j !== g.i){ x.pause(); try{ x.currentTime = 0; }catch(e){} } });
+    if(m.tagName === "VIDEO"){ try{ m.currentTime = 0; }catch(e){} }
+    if(g.fills) g.fills.forEach((f,j)=>f.style.width = j < g.i ? "100%" : "0");
+    sync(g);
+  }
+  function sync(g){
+    const m = g.items[g.i]; if(m.tagName !== "VIDEO") return;
+    if(running(g)){ const p = m.play(); if(p && p.catch) p.catch(()=>{ g.failed = true; }); }
+    else if(!m.controls) m.pause();
+  }
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver(es=>es.forEach(en=>{ const g = galleries.find(x=>x.el === en.target); if(g){ g.inView = en.intersectionRatio >= .5; sync(g); } }), {threshold:[0,.5,1]});
+    galleries.forEach(g=>io.observe(g.el));
+  } else galleries.forEach(g=>{ g.inView = true; sync(g); });
+  document.addEventListener("visibilitychange", ()=>galleries.forEach(sync));
+  lb.addEventListener("close", ()=>galleries.forEach(sync));
+  let last = performance.now();
+  (function tick(now){
+    const dt = Math.min(100, now - last); last = now;
+    galleries.forEach(g=>{
+      if(g.n < 2 || !running(g)) return;
+      const m = g.items[g.i]; let frac;
+      if(m.tagName === "VIDEO" && !g.failed){
+        frac = m.ended ? 1 : (m.duration ? m.currentTime / m.duration : 0);
+      } else { g.t += dt; frac = g.t / PHOTO_MS; }
+      if(g.fills) g.fills[g.i].style.width = Math.min(100, frac * 100) + "%";
+      if(frac >= 1) go(g, g.i + 1);
+    });
+    requestAnimationFrame(tick);
+  })(last);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace YOUR-SITE-URL with your real address, e.g. https://adityagupta.github.io
+Sitemap: https://YOUR-SITE-URL/sitemap.xml
