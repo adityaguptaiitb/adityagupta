@@ -355,6 +355,37 @@ dialog.lb::backdrop{background:rgba(6,12,28,.92)}
   .g-count{display:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+
+/* ---------- mobile portrait enhancements ---------- */
+@media (max-width:480px) and (orientation:portrait){
+  .hero{min-height:90svh;background-position:62% 0}
+  .hero h1{font-size:clamp(3.2rem,15vw,4.5rem)}
+  .hero-lede{font-size:1.05rem}
+  .g-view{aspect-ratio:4/3}
+  .proj-body{padding:18px 16px}
+  .proj-body h3{font-size:1.35rem}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpis dt{font-size:1.6rem}
+  .pgroup-head h3{font-size:1.5rem}
+  .sec-head h2{font-size:clamp(2.4rem,11vw,3.2rem)}
+  .contrib li{padding-left:28px;font-size:.95rem}
+  .contrib li::before{width:20px;height:20px;font-size:.75rem}
+  .about-bio p{font-size:1rem}
+  .contact-grid h2{font-size:clamp(2.4rem,11vw,3.2rem)}
+}
+
+/* ---------- rotate-hint toast ---------- */
+.rotate-hint{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--on-ink);
+  font:600 .95rem/1.3 var(--cond);padding:12px 18px;
+  border:1.5px solid var(--signal);border-radius:0;z-index:70;
+  max-width:calc(100% - 32px);box-shadow:0 4px 24px rgba(0,0,0,.35);
+  animation:hint-in .5s ease-out both}
+.rotate-hint svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--signal);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rotate-hint button{background:none;border:none;color:var(--on-ink-soft);font:600 1.1rem/1 var(--cond);padding:0 0 0 8px;cursor:pointer}
+.rotate-hint button:hover{color:var(--on-ink)}
+@keyframes hint-in{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 </style>
 </head>
 <body>
@@ -1013,6 +1044,17 @@ const LINKS = {
     });
     requestAnimationFrame(tick);
   })(last);
+
+  // ---------- rotate-to-landscape hint (portrait phones, shown once) ----------
+  if(window.innerWidth <= 480 && window.innerHeight > window.innerWidth && !sessionStorage.getItem("rh")){
+    const rh = document.createElement("div"); rh.className = "rotate-hint";
+    rh.innerHTML = '<svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M15 19h2"/></svg> Rotate for the best experience <button type="button" aria-label="Dismiss">&times;</button>';
+    document.body.appendChild(rh);
+    const dismiss = ()=>{ rh.style.opacity="0"; rh.style.transition="opacity .3s"; setTimeout(()=>rh.remove(),350); sessionStorage.setItem("rh","1"); };
+    rh.querySelector("button").addEventListener("click", dismiss);
+    setTimeout(dismiss, 6000);
+    try{ screen.orientation.addEventListener("change", ()=>{ if(screen.orientation.type.startsWith("landscape")) dismiss(); }); }catch(e){}
+  }
 })();
 </script>
 </body>
