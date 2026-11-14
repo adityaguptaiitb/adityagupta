@@ -3,17 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aditya Gupta | Mechanical Design Engineer, IIT Bombay</title>
-<meta name="description" content="Aditya Gupta, mechanical design engineer and M.Tech student at IIT Bombay, Mumbai. Robotic actuators, a quadruped leg, precision flexure mechanisms and UAVs, taken from first-principles models to CAD, hardware and test.">
+<title>Aditya Gupta, Mechanical Design Engineer</title>
+<meta name="description" content="Aditya Gupta, mechanical design engineer and M.Tech student at IIT Bombay, Mumbai. Robotic actuators, a quadruped leg, field-tunable dampers and UAVs, taken from first-principles models to CAD, hardware and test.">
 <meta name="author" content="Aditya Gupta">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://adityaguptaiitb.github.io/adityagupta/">
+<!-- SEO: after you put the site online, replace YOUR-SITE-URL below with your real address (for example https://adityagupta.github.io)
+     and remove the comment markers around the canonical and Search Console lines. See README.txt. -->
+<!-- <link rel="canonical" href="https://YOUR-SITE-URL/"> -->
 <!-- <meta name="google-site-verification" content="PASTE-CODE-FROM-SEARCH-CONSOLE"> -->
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Aditya Gupta | Mechanical Design Engineer, IIT Bombay">
-<meta property="og:description" content="Robotic actuators, a quadruped leg, precision flexure mechanisms and UAVs, from first-principles models to tested hardware. M.Tech, IIT Bombay.">
-<meta property="og:image" content="https://adityaguptaiitb.github.io/adityagupta/og-image.jpg">
-<meta property="og:url" content="https://adityaguptaiitb.github.io/adityagupta/">
+<meta property="og:title" content="Aditya Gupta, Mechanical Design Engineer">
+<meta property="og:description" content="Robotic actuators, a quadruped leg, field-tunable dampers and UAVs, from first-principles models to tested hardware. M.Tech, IIT Bombay.">
+<meta property="og:image" content="https://YOUR-SITE-URL/og-image.jpg">
+<meta property="og:url" content="https://YOUR-SITE-URL/">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B1836">
@@ -27,7 +29,6 @@
   "name": "Aditya Gupta",
   "jobTitle": "Mechanical Design Engineer",
   "description": "Mechanical design engineer and M.Tech student in Design Engineering at IIT Bombay, working on mechatronics, robotic actuators, precision compliant mechanisms and UAVs.",
-  "url": "https://adityaguptaiitb.github.io/adityagupta/",
   "email": "mailto:adityagupta13002@gmail.com",
   "affiliation": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Bombay" },
   "alumniOf": [
@@ -399,7 +400,7 @@ dialog.lb::backdrop{background:rgba(6,12,28,.92)}
     <div>
       <p class="hero-role">Mechanical design engineer, IIT Bombay</p>
       <h1>Aditya Gupta</h1>
-      <p class="hero-lede">I design machines from first principles, then build and test them until the numbers hold. My work runs from UAVs and robotic actuators to an industrial-scale 3D microprinter targeting 10&nbsp;µm accuracy.</p>
+      <p class="hero-lede">I design machines from first principles, then build and test them until the numbers hold. My work runs from UAVs and robotic actuators to field-tunable suspension systems.</p>
       <div class="hero-cta">
         <div class="btns">
           <a class="btn btn-solid" href="#projects">See the projects</a>
@@ -490,30 +491,9 @@ dialog.lb::backdrop{background:rgba(6,12,28,.92)}
     <div class="pgroup">
       <div class="pgroup-head">
         <h3>IIT Bombay, 2025 to now</h3>
-        <p>Mechatronics and precision machines: a resonant flexure stage, a backdrivable actuator and the leg it drives, and a field-tunable damper.</p>
+        <p>Mechatronics and precision machines: a backdrivable actuator and the quadruped leg it drives, and a field-tunable damper.</p>
       </div>
       <div class="projects">
-
-      <!-- ===== Spanda: industrial-scale SLA 3D microprinter ===== -->
-      <article class="proj feature" id="spanda" data-cat="iitb mech">
-        <div class="gallery" aria-label="Photos and videos: Spanda: industrial-scale SLA 3D microprinter">
-            <img src="img/spanda-v2-asm.jpg" alt="Spanda V2 flexure stage assembly in CAD" data-tag="CAD" data-bg="white" width="1500" height="1000" loading="lazy" decoding="async">
-            <video src="video/spanda-stage-scan.mp4" poster="img/spanda-stage-scan-poster.jpg" data-tag="Test" data-caption="Flexure stage scanning in the lab" muted playsinline preload="none"></video>
-            <img src="img/spanda-current.jpg" alt="Spanda test rig on the bench, with the confocal sensor mounted above the flexure stage" data-tag="Hardware" width="1600" height="1419" loading="lazy" decoding="async">
-            <video src="video/spanda-v1-scan.mp4" poster="img/spanda-v1-scan-poster.jpg" data-tag="Test" data-caption="Spanda V1 scanning" muted playsinline preload="none"></video>
-        </div>
-        <div class="proj-body">
-          <h3>Spanda: industrial-scale SLA 3D microprinter <span class="status">In progress</span></h3>
-          <p class="ctx">M.Tech project (MTP) and seminar, IIT Bombay, January 2026 to now. Guide: Prof. Prasanna Gandhi</p>
-          <p>Laser-scanning resin printers steer the beam with galvanometer mirrors. Toward the edges of the build plate, the spot stretches into an ellipse and defocuses, which limits accuracy to about 25 to 50 µm. Spanda replaces the galvanometer scanner with a double parallelogram compliant mechanism: a flexure stage with no friction and no backlash, driven near resonance by a voice-coil actuator.</p><p>The target is 10 µm positioning accuracy over a ±150 mm stroke, at industrial build sizes.</p>
-          <dl class="kpis"><div><dt>10 µm</dt><dd>target positioning accuracy, against about 25 to 50 µm for galvo SLA</dd></div><div><dt>±150 mm</dt><dd>flexure stroke, giving a 300 mm print bed size</dd></div><div><dt>mm to µm</dt><dd>simulated parasitic error after my optimization</dd></div><div><dt>30% to 1%</dt><dd>gap between model and experiment after I fixed the model</dd></div></dl>
-        </div>
-        <div class="contrib">
-          <h4>What I did</h4>
-          <ul><li>Generalized the chained beam constraint model (CBCM) from 3 to 6 elements per beam to capture large nonlinear deflections, and added beam self-weight through the Rayleigh half-weight criterion.</li><li>Built a three-stage nested grid search in MATLAB (the Russian-doll method) with analytical pre-filters, which drove the simulated parasitic error from the millimeter range to the micron scale.</li><li>Traced a 30% error in the legacy model through a mesh-convergence study, corrected the code to 0.5 µm precision, and validated it against Renishaw LM13 encoder and confocal sensor data to within 1%.</li><li>Co-modeled the scaled-up CAD, taking the print bed from 10 × 10 mm to 250 × 250 mm and cutting the legacy error from 100 µm to under 40 µm.</li><li>Formulated a 2-DOF spring-mass-damper model of the stage and validated its dynamic response on the bench rig, measured with the LM13 encoder and confocal sensor, to size it for near-resonance operation.</li></ul>
-          <p class="next">Next: print parts on the microprinter with tuned STM32 firmware, and validate the optimized beam geometry experimentally.</p>
-        </div>
-      </article>
 
       <!-- ===== Quadruped robot leg ===== -->
       <article class="proj" id="quadruped-leg" data-cat="iitb robotics">
@@ -808,7 +788,7 @@ dialog.lb::backdrop{background:rgba(6,12,28,.92)}
         <h3>Experience</h3>
         <ul class="xp">
           <li><span class="when">Jul 2025 to now</span><div><b>M.Tech student (Teaching Assistantship), IIT Bombay</b><span>Mechanical Engineering, Design Engineering specialization</span></div></li>
-          <li><span class="when">Jan 2026 to now</span><div><b>MTP and seminar, IIT Bombay</b><span>Spanda, an industrial-scale SLA 3D microprinter. Guide: Prof. Prasanna Gandhi</span></div></li>
+
           <li><span class="when">Nov 2025 to May 2026</span><div><b>R&amp;D project, IIT Bombay</b><span>Quadruped robot leg and its backdrivable actuator. Guide: Prof. Prasanna Gandhi</span></div></li>
           <li><span class="when">Apr to Jul 2025</span><div><b>Freelance drone design engineer, Airoveda</b><span>Stackable swarm-drone frame that nests 20 units, with SLA-printed LED diffusers; sub-120 g drone</span></div></li>
           <li><span class="when">Feb to Jun 2024</span><div><b>Graduate engineering trainee, Air Products</b><span>Piping design for a carbon-capture unit in SmartPlant 3D, to ASME B31.3</span></div></li>
